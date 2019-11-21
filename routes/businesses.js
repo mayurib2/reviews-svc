@@ -16,7 +16,7 @@ router.get('/:business_id/reviews', async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
 
     review_params = {
-        TableName: "sportify-reviews",
+        TableName: "reviews-merged-data",
         IndexName: 'business-index',
         KeyConditionExpression: "business_id = :business_id",
         ExpressionAttributeValues: {
@@ -66,7 +66,7 @@ router.get('/:business_id/reviews', async (req, res) => {
 
 router.post('/:business_id/reviews', (req, res) => {
     const review_params = {
-        TableName: "sportify-reviews",
+        TableName: "reviews-merged-data",
         Item: {
             "review_id": uuid(),
             "business_id": req.params.business_id,
@@ -101,7 +101,7 @@ router.delete('/:business_id/reviews/:review_id', async (req, res) => {
     console.log(`Deleting records based on review_id = ${review_id} and business_id = ${business_id}`);
 
     const review_params = {
-        TableName: "sportify-reviews",
+        TableName: "reviews-merged-data",
         Key: {
             "review_id": review_id
         }
