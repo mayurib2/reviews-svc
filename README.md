@@ -175,7 +175,7 @@ aws dynamodb create-table \
 ***Create business-index Global Secondary Index on sportify-reviews table***
 ```
 aws dynamodb update-table \
-    --table-name sportify-reviews \
+    --table-name reviews-merged-data \
     --attribute-definitions AttributeName=business_id,AttributeType=S \
     --global-secondary-index-updates \
     "[{\"Create\":{\"IndexName\": \"business-index\",\"KeySchema\":[{\"AttributeName\":\"business_id\",\"KeyType\":\"HASH\"}], \

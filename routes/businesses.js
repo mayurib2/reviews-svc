@@ -4,10 +4,10 @@ const router = new express.Router();
 const uuid = require('uuidv4').default;
 
 AWS.config.update({
-    region: "us-east-1",
-    endpoint: "http://localhost:8000",
-    accessKeyId: "ad",
-    secretAccessKey: "da"
+    region: process.env.region,
+    endpoint: process.env.endpoint,
+    accessKeyId: process.env.accessKeyId,
+    secretAccessKey: process.env.secretAccessKey
 });
 const dynamodbDocClient = new AWS.DynamoDB.DocumentClient();
 
@@ -22,7 +22,7 @@ router.get('/:business_id/reviews', async (req, res) => {
         ExpressionAttributeValues: {
             ':business_id': business_id,
         },
-        Limit: 1
+        Limit: 5
     };
 
     if (req.query.last_key_review_id && req.query.last_key_business_id) {
