@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-require('dotenv').config();
+require('dotenv').config({path:'/home/ubuntu/.env'});
 const businesses = require('./routes/businesses');
 const app = express();
 const bodyparser = require("body-parser");
