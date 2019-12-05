@@ -13,7 +13,7 @@ app.use(bodyparser.urlencoded({extended: false}));
 app.use('/businesses', businesses);
 
 app.get('/', function (req, res) {
-    res.send('Hello World')
+    res.send('Reviews Service Backend')
 });
 
 
